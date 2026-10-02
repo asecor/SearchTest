@@ -9,7 +9,7 @@ locale:
   # Browser geolocation is left unset so engines fall back to IP geolocation.
 
 browser:
-  channel: chrome        # real Chrome; use "chromium" if Chrome is not installed
+  channel: chromium      # Playwright's bundled Chromium; set "chrome" to use installed Google Chrome
   headless: false        # headed is far less likely to trigger bot detection
   viewport: {width: 1366, height: 900}
 
@@ -30,11 +30,8 @@ engines:
   - bing
   - duckduckgo
   - startpage
-  - metager
-  - ecosia
   - swisscows
   - qwant
   - yandex
   - mojeek
   - brave
-  - marginalia

@@ -1,4 +1,5 @@
 """Parse a saved SERP (raw HTML) into structured results using engines/specs.py."""
+import base64
 import re
 from urllib.parse import parse_qs, unquote, urlparse
 
@@ -35,6 +36,14 @@ def unwrap_url(href):
         return ""
     p = urlparse(href)
     qs = parse_qs(p.query)
+    if p.netloc.endswith("bing.com") and p.path.startswith("/ck/") and qs.get("u", [""])[0].startswith("a1"):
+        t = qs["u"][0][2:]
+        try:
+            dest = base64.urlsafe_b64decode(t + "=" * (-len(t) % 4)).decode()
+        except ValueError:
+            dest = ""
+        if dest.startswith("http"):
+            return dest
     for key in ("uddg", "q", "url", "u"):
         if key in qs and qs[key][0].startswith("http") and (
             p.path.startswith(("/url", "/l/")) or key == "uddg"
@@ -47,6 +56,17 @@ def _text(node):
     return re.sub(r"\s+", " ", node.get_text(" ", strip=True)) if node else ""
 
 
+def _cite_url(node, selectors):
+    """Rebuild a URL from a breadcrumb like 'https://a.com › b › c...'; may be truncated."""
+    for sel in selectors:
+        for el in node.select(sel):
+            t = _text(el)
+            if t.startswith("http"):
+                t = re.sub(r"[\s›]*(?:\.{3}|…)?[\s›]*$", "", t)
+                return t.replace(" › ", "/").replace("›", "/").replace(" ", "")
+    return ""
+
+
 def parse_serp(engine, html):
     spec = SPECS[engine]
     soup = BeautifulSoup(html, "lxml")
@@ -56,13 +76,21 @@ def parse_serp(engine, html):
         title_el = _first(node, spec["title"])
         link_el = _first(node, spec["link"])
         href = unwrap_url(link_el.get("href", "") if link_el else "")
+        approx = False
+        if not href.startswith("http") and spec.get("cite"):
+            href = _cite_url(node, spec["cite"])
+            approx = bool(href)
         if not href.startswith("http"):
+            continue
+        host = urlparse(href).netloc.lower()
+        if any(host == h or host.endswith("." + h) for h in spec.get("skip_hosts", [])):
             continue
         results.append({
             "rank": len(results) + 1,
             "title": _text(title_el),
             "url": href,
             "snippet": _text(_first(node, spec["snippet"])),
+            "url_approx": approx,
         })
         if len(results) >= 10:
             break
