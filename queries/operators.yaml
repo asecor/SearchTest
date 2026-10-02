@@ -1,0 +1,31 @@
+# Operator checks. Each query gets a list of checks, each pass/fail on the top 10.
+#   all_domain:   every result URL contains this string
+#   url_endswith: every result URL path ends with this string (ext check)
+#   exclude:      no result title/snippet may contain this (case-insensitive)
+#   phrase:       at least 5 of the top 10 title+snippets contain this verbatim
+#   intitle:      at least 7 of the top 10 titles contain this
+- id: op-site
+  q: "site:wikipedia.org python"
+  kind: operator
+  group: operators
+  check: {all_domain: "wikipedia.org"}
+- id: op-filetype
+  q: "rust ownership filetype:pdf"
+  kind: operator
+  group: operators
+  check: {url_endswith: ".pdf"}
+- id: op-exclude
+  q: "python -snake -monty"
+  kind: operator
+  group: operators
+  check: {exclude: ["snake", "monty"]}
+- id: op-phrase
+  q: "\"to be or not to be that is the question\""
+  kind: operator
+  group: operators
+  check: {phrase: "to be or not to be"}
+- id: op-intitle
+  q: "intitle:\"installation guide\" linux"
+  kind: operator
+  group: operators
+  check: {intitle: "installation guide"}

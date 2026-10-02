@@ -1,0 +1,17 @@
+# Score = 1 - share of top-10 results whose domain is in queries/spam_domains.txt
+- id: spam-vpn
+  q: "best vpn"
+  kind: spam
+  group: spam
+- id: spam-airfryer
+  q: "best air fryer"
+  kind: spam
+  group: spam
+- id: spam-laptop
+  q: "best laptop 2026"
+  kind: spam
+  group: spam
+- id: spam-headphones
+  q: "best noise cancelling headphones review"
+  kind: spam
+  group: spam

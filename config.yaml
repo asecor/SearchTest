@@ -1,0 +1,40 @@
+# Global run settings. Locale is pinned to English / Netherlands.
+locale:
+  language: en
+  region: NL
+  browser_locale: en-NL
+  timezone: Europe/Amsterdam
+  accept_language: "en-NL,en;q=0.9"
+  currency: EUR          # used by instant-answer variants
+  # Browser geolocation is left unset so engines fall back to IP geolocation.
+
+browser:
+  channel: chrome        # real Chrome; use "chromium" if Chrome is not installed
+  headless: false        # headed is far less likely to trigger bot detection
+  viewport: {width: 1366, height: 900}
+
+pacing:
+  min_delay: 8           # seconds between queries on one engine
+  max_delay: 20
+  max_queries_per_session: 60   # per engine per run; rerun resumes from cache
+  captcha_wait: 300      # seconds to wait for you to solve a CAPTCHA
+
+# Weights follow the 2020 LibreTechTips article.
+weights:
+  relevancy: 0.60
+  answers: 0.30
+  other: 0.10
+
+engines:
+  - google
+  - bing
+  - duckduckgo
+  - startpage
+  - metager
+  - ecosia
+  - swisscows
+  - qwant
+  - yandex
+  - mojeek
+  - brave
+  - marginalia

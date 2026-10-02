@@ -1,0 +1,26 @@
+# Affiliate / listicle / SEO-farm domains. Extend freely. One substring per line.
+techradar.com
+tomsguide.com
+cnet.com
+pcmag.com
+forbes.com/advisor
+forbes.com/sites
+wirecutter.com
+nytimes.com/wirecutter
+bestproducts.com
+businessinsider.com/reviews
+rtings.com
+toptenreviews.com
+vpnmentor.com
+cybernews.com
+security.org
+comparitech.com
+safetydetectives.com
+vpnoverview.com
+tech.co
+zdnet.com
+digitaltrends.com
+mashable.com/deals
+t3.com
+trustedreviews.com
+which.co.uk

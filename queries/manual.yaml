@@ -1,0 +1,57 @@
+# No gold data. Scored only in the blind review page (0-4).
+- id: man-news-nl
+  q: "nederland nieuws vandaag"
+  kind: manual
+  group: news
+- id: man-news-en
+  q: "latest news netherlands"
+  kind: manual
+  group: news
+- id: man-news-tech
+  q: "linux kernel release this week"
+  kind: manual
+  group: news
+- id: man-local
+  q: "pharmacy near me"
+  kind: manual
+  group: local
+- id: man-local-food
+  q: "best stroopwafel amsterdam"
+  kind: manual
+  group: local
+- id: man-de
+  q: "Datenschutz Grundverordnung Zusammenfassung"
+  kind: manual
+  group: non-english
+- id: man-fr
+  q: "tour eiffel horaires d'ouverture"
+  kind: manual
+  group: non-english
+- id: man-ja
+  q: "東京 天気 週間"
+  kind: manual
+  group: non-english
+- id: man-nl-info
+  q: "belastingdienst toeslagen aanvragen"
+  kind: manual
+  group: non-english
+- id: man-typo
+  q: "defintely recieve seperate occurence"
+  kind: manual
+  group: typos
+- id: man-ambiguous-jaguar
+  q: "jaguar"
+  kind: manual
+  group: ambiguity
+- id: man-ambiguous-python
+  q: "python"
+  kind: manual
+  group: ambiguity
+- id: man-longtail
+  q: "why does my sourdough starter smell like nail polish remover"
+  kind: manual
+  group: longtail
+- id: man-health
+  q: "ibuprofen and paracetamol together safe"
+  kind: manual
+  group: longtail
