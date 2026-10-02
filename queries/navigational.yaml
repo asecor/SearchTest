@@ -1,0 +1,20 @@
+- id: nav-rijksmuseum
+  q: "rijksmuseum tickets"
+  kind: relevance
+  group: navigational
+  gold: ["rijksmuseum.nl"]
+- id: nav-ns
+  q: "ns reisplanner"
+  kind: relevance
+  group: navigational
+  gold: ["ns.nl"]
+- id: nav-python-docs
+  q: "python argparse documentation"
+  kind: relevance
+  group: navigational
+  gold: ["docs.python.org"]
+- id: nav-wikipedia-amsterdam
+  q: "amsterdam"
+  kind: relevance
+  group: navigational
+  gold: ["wikipedia.org/wiki/amsterdam", "iamsterdam.com"]

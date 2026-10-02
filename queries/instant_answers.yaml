@@ -1,0 +1,40 @@
+- id: ia-calc
+  q: "2^10"
+  kind: answer
+  group: instant
+  answer_regex: "\\b1[ ,.]?024\\b"
+- id: ia-time
+  q: "time in tokyo"
+  kind: answer
+  group: instant
+  answer_regex: "\\b\\d{1,2}:\\d{2}\\b"
+- id: ia-unit
+  q: "10 km in miles"
+  kind: answer
+  group: instant
+  answer_regex: "6[.,]21"
+- id: ia-currency
+  q: "100 usd in eur"
+  kind: answer
+  group: instant
+  answer_regex: "\\d{2,3}[.,]\\d+\\s*(EUR|€|euro)|(EUR|€|euro)\\s*\\d{2,3}[.,]\\d+"
+- id: ia-weather
+  q: "weather amsterdam"
+  kind: answer
+  group: instant
+  answer_regex: "°\\s?[CF]|\\d+\\s?°"
+- id: ia-population
+  q: "population of netherlands"
+  kind: answer
+  group: instant
+  answer_regex: "1[78][.,]?\\d*\\s*(million|M)|1[78],\\d{3},\\d{3}"
+- id: ia-author
+  q: "who wrote pride and prejudice"
+  kind: answer
+  group: instant
+  answer_regex: "Jane Austen"
+- id: ia-define
+  q: "define ephemeral"
+  kind: answer
+  group: instant
+  answer_regex: "short.lived|lasting.{0,20}short|transitory|brief"

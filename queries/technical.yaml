@@ -1,0 +1,40 @@
+- id: tech-ripgrep
+  q: "ripgrep"
+  kind: relevance
+  group: technical
+  gold: ["github.com/burntsushi/ripgrep"]
+- id: tech-fzf
+  q: "fzf fuzzy finder"
+  kind: relevance
+  group: technical
+  gold: ["github.com/junegunn/fzf"]
+- id: tech-nonetype
+  q: "python TypeError 'NoneType' object is not subscriptable"
+  kind: relevance
+  group: technical
+  gold: ["stackoverflow.com/questions"]
+- id: tech-compose-health
+  q: "docker compose depends_on condition service_healthy"
+  kind: relevance
+  group: technical
+  gold: ["docs.docker.com/compose", "docs.docker.com/reference"]
+- id: tech-ffmpeg-audio
+  q: "ffmpeg extract audio from video without re-encoding"
+  kind: relevance
+  group: technical
+  gold: ["stackoverflow.com", "superuser.com", "ffmpeg.org", "trac.ffmpeg.org"]
+- id: tech-rsync-exclude
+  q: "rsync exclude directory but include one subfolder"
+  kind: relevance
+  group: technical
+  gold: ["stackoverflow.com", "serverfault.com", "unix.stackexchange.com"]
+- id: tech-rust-borrow
+  q: "rust error E0502 cannot borrow as mutable because it is also borrowed as immutable"
+  kind: relevance
+  group: technical
+  gold: ["doc.rust-lang.org", "stackoverflow.com"]
+- id: tech-jq-select
+  q: "jq select"
+  kind: relevance
+  group: technical
+  gold: ["jqlang.github.io", "jqlang.org", "stedolan.github.io/jq", "github.com/jqlang/jq"]

@@ -1,0 +1,73 @@
+# The 8 queries from the 2020 LibreTechTips article, kept verbatim so scores are
+# comparable. Variants (ids ending in -nl) adapt a query to the NL locale and
+# are scored separately.
+#
+# Fields
+#   kind: relevance | phrase | answer | operator | spam | manual
+#   gold: URL substrings (lowercase). Rank of first match drives nDCG.
+#   intents: {name: [regex on title+url+snippet]}. Score = coverage of distinct intents.
+#   phrase: verbatim text that results should contain.
+#   answer_regex: regex the instant answer should satisfy.
+#   weight: relative weight inside its criterion (default 1).
+- id: core-mac-kvm
+  q: "mac kvm"
+  kind: relevance
+  group: core2020
+  gold: ["github.com/foxlet/macos-simple-kvm"]
+  intents:
+    kvm_vm: ["virtual machine|qemu|macos|hypervisor|kernel-based"]
+    kvm_switch: ["kvm switch|keyboard.{0,20}video|hdmi|displayport"]
+
+- id: core-atril-search-list
+  q: "atril search list"
+  kind: relevance
+  group: core2020
+  gold: ["github.com/mate-desktop/atril/issues"]
+  intents:
+    atril_pdf: ["atril.{0,60}(pdf|document viewer|mate)|(pdf|document viewer|mate).{0,60}atril"]
+
+- id: core-patagonia
+  q: "patagonia"
+  kind: relevance
+  group: core2020
+  intents:
+    brand: ["patagonia\\.com|clothing|jacket|fleece|outdoor gear|apparel"]
+    region: ["wikipedia\\.org/wiki/patagonia|argentina|chile|south america|travel|region"]
+
+- id: core-java-verbose
+  q: "\"I personally find Java to be verbose\""
+  kind: phrase
+  group: core2020
+  phrase: "I personally find Java to be verbose"
+  note: "Obscure 2020 blog comment. Today this only tests exact-phrase support, not freshness."
+
+- id: core-sycophant
+  q: "sycophant"
+  kind: answer
+  group: core2020
+  answer_regex: "obsequious|fawn|flatter|servile|self-seeking"
+
+- id: core-sycophant-spanish
+  q: "sycophant in spanish"
+  kind: answer
+  group: core2020
+  answer_regex: "sicofante|adulador|lacayo|lameculos|cortesano|lisonjero"
+
+- id: core-capital-oregon
+  q: "capital oregon"
+  kind: answer
+  group: core2020
+  answer_regex: "\\bSalem\\b"
+
+- id: core-currency-unit
+  q: "$5/lb in gbp/kg"
+  kind: answer
+  group: core2020
+  answer_regex: "(GBP|£|pound).{0,40}(kg|kilo)|\\d+[.,]\\d+\\s*(GBP|£)"
+
+# NL-locale variant of the currency/unit conversion
+- id: core-currency-unit-nl
+  q: "$5/lb in eur/kg"
+  kind: answer
+  group: core2020-nl
+  answer_regex: "(EUR|€|euro).{0,40}(kg|kilo)|\\d+[.,]\\d+\\s*(EUR|€)"
